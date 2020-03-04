@@ -1,0 +1,78 @@
+<style>
+  #logo-splash-text {
+    color: #cb2e9b;
+    margin-top: 25px;
+  }
+
+  #plug {
+    width: 275px;
+    text-align: center;
+  }
+
+  #title {
+    font-weight: bold;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.highlight-card {
+    border-color: #cb2e9b;
+    background-color: #e4e0c9;
+    color: white;
+    font-weight: 600;
+    border: solid;
+    width: 275px;
+    min-width: 30%;
+    position: relative;
+    height: auto;
+  }
+
+</style>
+
+  <div class="card highlight-card card-small logo-splash" id="logo-splash-text" *ngFor='let episode of podcastEpisodes'>
+
+    <div>
+      
+      <div id="title" style="text-align: center;">
+        {{ episode.title }}
+      </div>
+
+      <div id="plug" style="float: left; clear: left;">
+        <div *ngIf="episode.description.p;else episodeDescription">
+          {{ episode.description.p }}
+        </div>
+        <ng-template #episodeDescription>
+          {{episode.description}}
+        </ng-template>
+        <br>
+      <a href="https://open.spotify.com/show/1H1NCOnNbq8IvOhhzZ7EgB?si=9IYBMDuJT-61VTP2iViZUw"><img src="/assets/spotify-logo.png" height="32" width="32"></a>
+      <a href="https://podcasts.apple.com/us/podcast/motion-pixels/id1498025876"><img src="/assets/apple-podcast-logo.png" height="32" width="32"></a>
+
+      </div>
+    </div>
+
+
+  </div>
